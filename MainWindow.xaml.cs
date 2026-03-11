@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Policy;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,23 @@ namespace praktika26
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+            init = this;
+            OpenPages(new Pages.Clubs.Main());
         }
+
+        public void OpenPages(Page page)
+        {
+            Frame.Navigate(Page);
+        }
+
+        private void Clubs(object sender, RoutedEventArgs e) =>
+            OpenPages(new Pages.Clubs.Main());
+
+        private void Users(object sender, RoutedEventArgs e) =>
+            OpenPages(new Pages.Users.Main());
     }
 }
