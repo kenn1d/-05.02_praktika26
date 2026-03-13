@@ -4,7 +4,7 @@ using praktika26.Models;
 
 namespace praktika26.Classes
 {
-    class UserContext : DbContext
+    public class UserContext : DbContext
     {
         public DbSet<Users> Users { get; set; }
 
