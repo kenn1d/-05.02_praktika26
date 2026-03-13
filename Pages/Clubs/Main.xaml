@@ -14,6 +14,51 @@
                 <StackPanel x:Name="Parent"/>
             </ScrollViewer>
             <Button 
+                x:Name="BthName"
+                Click="SortName"
+                Height="25"
+                Content="По имени"
+                VerticalAlignment="Bottom"
+                Margin="10"
+                HorizontalAlignment="Left"
+                Width="100"
+                Background="#FF004AFF"
+                BorderBrush="#FF004AFF"
+                Foreground="White"/>
+            <Button 
+                x:Name="BthAddress"
+                Click="SortAddress"
+                Height="25"
+                Content="По адресу"
+                VerticalAlignment="Bottom"
+                Margin="120,0,0,10"
+                HorizontalAlignment="Left"
+                Width="100"
+                Background="#FF004AFF"
+                BorderBrush="#FF004AFF"
+                Foreground="White"/>
+            <Button 
+                x:Name="BthTime"
+                Click="SortTime"
+                Height="25"
+                Content="По времени"
+                VerticalAlignment="Bottom"
+                Margin="230,0,0,10"
+                HorizontalAlignment="Left"
+                Width="100"
+                Background="#FF004AFF"
+                BorderBrush="#FF004AFF"
+                Foreground="White"/>
+            <TextBox
+                x:Name="SearchParam"
+                Height="25"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Width="200"
+                Margin="340,0,0,10"
+                Background="White"
+                BorderBrush="#FF004AFF"/>
+            <Button 
                 x:Name="BthAdd"
                 Click="AddClub"
                 Height="25"
@@ -25,6 +70,7 @@
                 Background="#ff46fd00"
                 BorderBrush="#ff46fd00"
                 Foreground="White"/>
+            
         </Grid>
     </Grid>
 </Page>
