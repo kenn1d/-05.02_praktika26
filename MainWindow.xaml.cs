@@ -13,7 +13,7 @@ namespace praktika26
         {
             InitializeComponent();
             init = this;
-            OpenPages(new Pages.Clubs.Main());
+            OpenPages(new Pages.LogIn());
         }
 
         public void OpenPages(Page page)

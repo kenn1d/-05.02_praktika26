@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace praktika26.Pages.Clubs.Elements
 {
@@ -38,19 +26,28 @@ namespace praktika26.Pages.Clubs.Elements
         }
 
         /// <summary> Метод изменения
-        private void EditClub(object sender, System.Windows.RoutedEventArgs e) =>
-            // Открываем страницу добавления, пересылая данные
-            MainWindow.init.OpenPages(new Pages.Clubs.Add(this.Main, this.Club));
+        private void EditClub(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Classes.ActiveUser.User.Login == "admin")
+            {
+                MainWindow.init.OpenPages(new Pages.Clubs.Add(this.Main, this.Club));
+            }
+            else MessageBox.Show("Откзано в доступе", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
         /// <summary> Метод удаления
         private void DeleteClub(object sender, System.Windows.RoutedEventArgs e)
         {
-            // Удаляем клуб из контекста
-            Main.AllClub.Clubs.Remove(this.Club);
-            // Сохраняем изменения
-            Main.AllClub.SaveChanges();
-            // Удаляем элемент со страницы Main
-            Main.Parent.Children.Remove(this);
+            if (Classes.ActiveUser.User.Login == "admin")
+            {
+                // Удаляем клуб из контекста
+                Main.AllClub.Clubs.Remove(this.Club);
+                // Сохраняем изменения
+                Main.AllClub.SaveChanges();
+                // Удаляем элемент со страницы Main
+                Main.Parent.Children.Remove(this);
+            }
+            else MessageBox.Show("Откзано в доступе", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

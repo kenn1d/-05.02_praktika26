@@ -7,5 +7,7 @@
         public DateTime RentStart { get; set; }
         public int Duration { get; set; }
         public int IdClub { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
     }
 }

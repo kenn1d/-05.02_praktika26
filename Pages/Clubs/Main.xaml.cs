@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using Microsoft.EntityFrameworkCore;
 using praktika26.Classes;
 
 namespace praktika26.Pages.Clubs
@@ -18,8 +17,13 @@ namespace praktika26.Pages.Clubs
                 Parent.Children.Add(new Elements.Item(Club, this));
         }
 
-        private void AddClub(object sender, System.Windows.RoutedEventArgs e) =>
-            MainWindow.init.OpenPages(new Pages.Clubs.Add(this));
+        private void AddClub(object sender, System.Windows.RoutedEventArgs e) {
+            if (Classes.ActiveUser.User.Login == "admin")
+            {
+                MainWindow.init.OpenPages(new Pages.Clubs.Add(this));
+            }
+            else MessageBox.Show("Откзано в доступе", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
         private void SortName(object sender, System.Windows.RoutedEventArgs e) =>
             Search("Name");
