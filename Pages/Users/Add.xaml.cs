@@ -22,6 +22,7 @@ namespace praktika26.Pages.Users
                 Clubs.Items.Add(club.Name);
 
             this.Main = main;
+            this.User = user;
             if(user != null ) {
                 this.User = user;
                 this.FIO.Text = user.FIO;

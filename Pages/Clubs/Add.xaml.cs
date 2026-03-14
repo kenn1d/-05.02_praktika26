@@ -28,6 +28,7 @@ namespace praktika26.Pages.Clubs
             InitializeComponent();
 
             this.Main = main;
+            Club = club;
 
             // Если пришёл клуб на изменение
             if(Club != null)
