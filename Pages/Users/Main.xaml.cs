@@ -52,22 +52,20 @@ namespace praktika26.Pages.Users
             Search("time");
 
         private void SelectClub(object sender, RoutedEventArgs e)
-        
         {
-            //TODO: Настроить сортировку
-            if (SearchClub.SelectedIndex >= 0)
+            if (SearchClub.SelectedIndex > 0)
             {
-                var selectedClub = AllClub.Clubs.FirstOrDefault(y => y.Name == SearchClub.Text);
+                var SelectedClub = AllClub.Clubs.First(x => x.Name == SearchClub.SelectedItem.ToString());
 
-                if (selectedClub != null)
+                if (SelectedClub != null)
                 {
-                    var results = AllUsers.Users.Where(u => u.IdClub == selectedClub.Id - 1);
+                    var Results = AllUsers.Users.Where(x => x.IdClub == SelectedClub.Id);
 
-                    if (results.Any())
+                    if (Results.Any())
                     {
                         Parent.Children.Clear();
-                        foreach (var user in results)
-                            Parent.Children.Add(new Elements.Item(user, this));
+                        foreach (var User in Results)
+                            Parent.Children.Add(new Elements.Item(User, this));
                     }
                     else
                     {
